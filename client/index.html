@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Gas Tracker</title>
+    <script>
+        async function fetchGasPrice() {
+            const response = await fetch('/api/gasprice');
+            const data = await response.json();
+            document.getElementById('gas-price').textContent = `${data.gasPrice} Gwei`;
+        }
+
+        window.onload = fetchGasPrice;
+    </script>
+</head>
+<body>
+    <p id="gas-price">Загрузка...</p>
+</body>
+</html>
